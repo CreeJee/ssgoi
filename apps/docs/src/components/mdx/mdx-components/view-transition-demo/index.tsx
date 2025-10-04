@@ -32,6 +32,9 @@ const StripDemo = lazy(() =>
 const JaeminDemo = lazy(() =>
   import("./jaemin-demo").then((m) => ({ default: m.JaeminDemo })),
 );
+const DimmDemo = lazy(() =>
+  import("./dimm-demo").then((m) => ({ default: m.DimmDemo })),
+                      
 
 export interface ViewTransitionDemoProps {
   type:
@@ -43,6 +46,7 @@ export interface ViewTransitionDemoProps {
     | "slide"
     | "blind"
     | "strip"
+    | "dimm";
     | "jaemin";
 }
 
@@ -79,6 +83,8 @@ export function ViewTransitionDemo({ type }: ViewTransitionDemoProps) {
         return <StripDemo />;
       case "jaemin":
         return <JaeminDemo />;
+      case "dimm":
+        return <DimmDemo />;
       default:
         return null;
     }
